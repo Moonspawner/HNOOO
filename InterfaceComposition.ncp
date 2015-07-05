@@ -1,0 +1,42 @@
+<Project>
+  <Name>InterfaceComposition</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Interface</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>InterfaceCompositor</Name>
+        <Access>Public</Access>
+        <Location left="218" top="160" />
+        <Size width="260" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public GUIFooter Footer { get; set; }</Member>
+        <Member type="Constructor">public InterfaceCompositor(IDisplayEngine engine)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GUIFooter</Name>
+        <Access>Public</Access>
+        <Location left="218" top="392" />
+        <Size width="210" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public Color BackgroundColor { get; set; }</Member>
+        <Member type="Property">public Color TextColor { get; set; }</Member>
+        <Member type="Property">public string Text { get; set; }</Member>
+        <Member type="Property">public bool Scrolling { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IDisplayEngine</Name>
+        <Access>Public</Access>
+        <Location left="495" top="160" />
+        <Size width="204" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Keypress(KeyInfo key)</Member>
+        <Member type="Method">void UpdateView()</Member>
+        <Member type="Method">void Navigate(string adress)</Member>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>

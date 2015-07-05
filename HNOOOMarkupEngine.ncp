@@ -1,0 +1,37 @@
+<Project>
+  <Name>HNOOOMarkupEngine</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Parser</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Parser</Name>
+        <Access>Public</Access>
+        <Location left="169" top="93" />
+        <Size width="229" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static XmlDocument Parse(string source)</Member>
+        <Modifier>Static</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>DisplayEngine</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>DisplayEngine</Name>
+        <Access>Public</Access>
+        <Location left="335" top="169" />
+        <Size width="197" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void Keypress(KeyInfo key)</Member>
+        <Member type="Method">public void UpdateView()</Member>
+        <Member type="Method">public void Navigate(string adress)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>
