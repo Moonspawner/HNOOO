@@ -18,17 +18,13 @@ namespace CSV
         {
             var table = file.Split(rowSeperator).Select(row => row.Split(columnSeperator).ToArray()).ToArray();
 
-            if (!heading)
-            {
+            if (heading) {
+                titles = table[0];
+                data = table.Skip(1).ToArray();
+            } else {
                 titles = null;
                 data = table;
             }
-            else
-            {
-                titles = table[0];
-                data = table.Skip(1).ToArray();
-            }
-
         }
 
         public IEnumerator<Dictionary<object, string>> GetEnumerator()

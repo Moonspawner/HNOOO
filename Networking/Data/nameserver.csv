@@ -1,0 +1,3 @@
+﻿Name;Pattern
+Steph's Nameserver;http://tk.steph.cf/dns.php?name={0}
+Jonathan's Nameserver;http://jfds.eu/tkbrowser/dns.php?name={0}
