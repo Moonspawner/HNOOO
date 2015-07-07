@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using HNOOOMarkupEngine.DisplayEngine;
+using Snake;
 
 namespace ConsoleUI
 {
@@ -32,7 +33,7 @@ namespace ConsoleUI
 
         internal static void InitializeBrowser()
         {
-            Compositor = new InterfaceCompositor(new HMDisplayEngine());
+            Compositor = new InterfaceCompositor(new SnakeDisplayEngine());
         }
     }
 }
