@@ -20,17 +20,25 @@ namespace InterfaceComposition.Interface
 	        Footer = new GUIFooter();
 
 	        var updateFooter = new Task(() =>
-	                                    {
-	                                        while (true)
-	                                        {
-	                                            Footer.Update();
-	                                            Thread.Sleep(200);
-	                                        }
-	                                    });
+                                        {
+                                            while (true) {
+                                                Footer.Update();
+                                                Thread.Sleep(1000);
+                                            }
+                                        });
 	        updateFooter.Start();
 
 		    _engine = engine;
-            UpdateRegion();
+
+            var updateEngineRegion = new Task(() =>
+                                            {
+                                                while (true) {
+                                                    UpdateRegion();
+                                                    Thread.Sleep(1000);
+                                                }
+                                            });
+            updateEngineRegion.Start();
+
             _engine.Navigate("home");
 
 	        ConsoleKeyInfo key;

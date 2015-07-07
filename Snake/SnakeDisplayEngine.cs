@@ -23,9 +23,12 @@ namespace Snake
                     if (++_consoleLeft >= Region.X + Region.Width) {
                         _consoleTop++;
                         _consoleLeft = Region.X + 1;
+                        if (_consoleTop >= Region.Y + Region.Height) {
+                            Console.MoveBufferArea(Region.X, Region.Y + 1, Region.Width, Region.Height - 1, Region.X, Region.Y);
+                            _consoleTop--;
+                        }
                     }
                 }
-
                 _consoleLeft--;
             } else {
                 _consoleLeft--;
@@ -34,9 +37,9 @@ namespace Snake
                     _consoleTop--;
                 }
                 if (_consoleTop < Region.Y) {
-                    _consoleTop = Region.X;
+                    _consoleLeft = Region.X;
+                    _consoleTop = Region.Y;
                 }
-
                 lock (InterfaceCompositor.ConsoleWriterLock) {
                     Console.SetCursorPosition(_consoleLeft, _consoleTop);
                     Console.Write('_');
