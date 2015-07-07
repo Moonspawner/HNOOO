@@ -56,7 +56,14 @@
     <Compile Include="HMDisplayEngine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\InterfaceComposition\Interface\InterfaceComposition.csproj">
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\InterfaceComposition\InterfaceComposition.csproj">
       <Project>{f5442ad8-0100-45b7-8642-39102895cb0a}</Project>
       <Name>InterfaceComposition</Name>
     </ProjectReference>
@@ -64,13 +71,6 @@
       <Project>{64946cfa-22d2-4f36-a07e-4d393e14818b}</Project>
       <Name>HNOOOMarkupParser</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
