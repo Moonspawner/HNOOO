@@ -32,6 +32,12 @@ namespace InterfaceComposition.Interface
 		    _engine = engine;
             UpdateRegion();
             _engine.Navigate("home");
+
+	        ConsoleKeyInfo key;
+	        while ((key = Console.ReadKey(true)) != null)
+	        {
+	            _engine.Keypress(key);
+	        }
 		}
 
 	    private void UpdateRegion()
