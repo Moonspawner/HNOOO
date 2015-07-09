@@ -23,7 +23,7 @@ namespace InterfaceComposition.Interface
                                         {
                                             while (true) {
                                                 Footer.Update();
-                                                Thread.Sleep(1000);
+                                                Thread.Sleep(200);
                                             }
                                         });
 	        updateFooter.Start();
@@ -34,17 +34,19 @@ namespace InterfaceComposition.Interface
                                             {
                                                 while (true) {
                                                     UpdateRegion();
-                                                    Thread.Sleep(1000);
+                                                    Thread.Sleep(200);
                                                 }
                                             });
+            UpdateRegion(); //because the program may run before the first UpdateRegion() occured and that will cause bugs
             updateEngineRegion.Start();
 
             _engine.Navigate("home");
 
 	        ConsoleKeyInfo key;
-	        while ((key = Console.ReadKey(true)) != null)
-	        {
-	            _engine.Keypress(key);
+	        while ((key = Console.ReadKey(true)) != null) {
+	            if(!(Footer.Keypress(key) || _engine.Keypress(key))) {
+	                //Keypress couldn't be handled :c
+	            }
 	        }
 		}
 

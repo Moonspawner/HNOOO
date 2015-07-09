@@ -5,8 +5,9 @@ using System.Text;
 namespace InterfaceComposition.Interface
 {
 	public interface IDisplayEngine
-	{
-		void Keypress(ConsoleKeyInfo key);
+    {
+        ///<returns>whether the keypress has been handled</returns>
+        bool Keypress(ConsoleKeyInfo key);
 
         void Navigate(string address);
 

@@ -12,7 +12,7 @@ namespace HNOOOMarkupEngine.DisplayEngine
     {
         private string _address;
 
-		public void Keypress(ConsoleKeyInfo key)
+		public bool Keypress(ConsoleKeyInfo key)
 		{
 			throw new NotImplementedException();
 		}

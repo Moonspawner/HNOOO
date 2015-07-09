@@ -11,7 +11,7 @@ namespace Snake
         private int _consoleLeft = 0;
         private int _consoleTop = 0;
 
-        public void Keypress(ConsoleKeyInfo key)
+        public bool Keypress(ConsoleKeyInfo key)
         {
             //a simple text editor
             if (key.Key != ConsoleKey.Backspace) {
@@ -20,20 +20,20 @@ namespace Snake
                         Console.SetCursorPosition(_consoleLeft, _consoleTop);
                         Console.Write(@char);
                     }
-                    if (++_consoleLeft >= Region.X + Region.Width) {
+                    if (++_consoleLeft >= Region.Right) {
                         _consoleTop++;
                         _consoleLeft = Region.X + 1;
-                        if (_consoleTop >= Region.Y + Region.Height) {
+                        if (_consoleTop >= Region.Bottom) {
                             Console.MoveBufferArea(Region.X, Region.Y + 1, Region.Width, Region.Height - 1, Region.X, Region.Y);
                             _consoleTop--;
                         }
                     }
                 }
                 _consoleLeft--;
-            } else {
+            } else { //we typed a backspace
                 _consoleLeft--;
-                if (_consoleLeft < Region.X) {
-                    _consoleLeft = Region.X + Region.Width - _consoleLeft - 3;
+                if (_consoleLeft < Region.X) { 
+                    _consoleLeft = Region.Right - _consoleLeft - 3;
                     _consoleTop--;
                 }
                 if (_consoleTop < Region.Y) {
@@ -45,6 +45,7 @@ namespace Snake
                     Console.Write('_');
                 }
             }
+            return true;
         }
 
         public void Navigate(string address)
