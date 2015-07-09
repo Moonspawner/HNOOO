@@ -59,7 +59,7 @@ namespace InterfaceComposition.Interface
 	            {
 	                case UIState.Normal:
                         Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
-                        Console.Write("STRG + G for goto");
+                        Console.Write("CTRL + G for goto");
                         break;
                     case UIState.ExpectInput:
                         Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
@@ -99,6 +99,7 @@ namespace InterfaceComposition.Interface
                 return true;
 	        } else if (state == UIState.ExpectInput) {
 	            _urlInput += key.KeyChar;
+	            Update();
                 return true;
 	        }
             return false;

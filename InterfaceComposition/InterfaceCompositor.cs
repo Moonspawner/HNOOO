@@ -23,7 +23,7 @@ namespace InterfaceComposition.Interface
                                         {
                                             while (true) {
                                                 Footer.Update();
-                                                Thread.Sleep(200);
+                                                Thread.Sleep(1000);
                                             }
                                         });
 	        updateFooter.Start();
@@ -34,7 +34,7 @@ namespace InterfaceComposition.Interface
                                             {
                                                 while (true) {
                                                     UpdateRegion();
-                                                    Thread.Sleep(200);
+                                                    Thread.Sleep(1000);
                                                 }
                                             });
             UpdateRegion(); //because the program may run before the first UpdateRegion() occured and that will cause bugs
