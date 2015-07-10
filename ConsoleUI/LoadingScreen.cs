@@ -11,14 +11,14 @@ namespace ConsoleUI
 		    try
 		    {
 		        var lines = File.ReadAllText("Welcome.txt").Split('\n');
-		        var heightInLines = int.Parse(lines[0].Split(' ')[0]);
-                var durationInMs = int.Parse(lines[0].Split(' ')[1]); //vioalting DRY here ;__;
+		        var arguments = lines[0].Split(' ');
+		        var heightInLines = int.Parse(arguments[0]);
+                var durationInMs = int.Parse(arguments[1]);
 
-		        for (var index = 1; index < lines.Length; index += heightInLines) {
+		        for(var index = 1; index < lines.Length;) {
 		            Console.Clear();
-		            for (var subline = 0; subline < heightInLines; subline++) { //I feel like working with index here to save a variable but unfortunately I don't think that's possible
-		                Console.WriteLine(lines[index + subline]);
-		            }
+		            do { Console.WriteLine(lines[index]); }
+		            while((index++ - 1)%heightInLines != heightInLines - 1);
 
 		            Thread.Sleep(durationInMs);
 		        }

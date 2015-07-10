@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B58A5D74-3316-426F-B5A8-D98D413CFD53}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleUI</RootNamespace>
-    <AssemblyName>ConsoleUI</AssemblyName>
+    <RootNamespace>HNOOOBrowser</RootNamespace>
+    <AssemblyName>HNOOOBrowser</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,20 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoadingScreen.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="HNOOOBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Welcome.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HNOOOBrowser\HNOOOBrowser.csproj">
-      <Project>{35a983c1-6af8-46e6-ad08-e14ac08cab13}</Project>
-      <Name>HNOOOBrowser</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HNOOOMarkupEngine\DisplayEngine\HNOOODisplayEngine.csproj">
       <Project>{1f44d0de-6e52-4079-be88-37e3f618efcd}</Project>
       <Name>HNOOODisplayEngine</Name>
@@ -62,10 +50,6 @@
     <ProjectReference Include="..\InterfaceComposition\InterfaceComposition.csproj">
       <Project>{f5442ad8-0100-45b7-8642-39102895cb0a}</Project>
       <Name>InterfaceComposition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Snake\Snake.csproj">
-      <Project>{a6795700-33ee-4bc2-8d0c-01f72f5ca301}</Project>
-      <Name>Snake</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

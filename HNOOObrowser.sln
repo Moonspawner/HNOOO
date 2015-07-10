@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Networking", "Networking\Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Snake\Snake.csproj", "{A6795700-33EE-4BC2-8D0C-01F72F5CA301}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HNOOOBrowser", "HNOOOBrowser\HNOOOBrowser.csproj", "{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A6795700-33EE-4BC2-8D0C-01F72F5CA301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6795700-33EE-4BC2-8D0C-01F72F5CA301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6795700-33EE-4BC2-8D0C-01F72F5CA301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A983C1-6AF8-46E6-AD08-E14AC08CAB13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

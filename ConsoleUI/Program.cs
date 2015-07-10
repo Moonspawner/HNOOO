@@ -10,14 +10,13 @@ namespace ConsoleUI
 {
     class Program
     {
-        internal static InterfaceCompositor Compositor;
         internal static LoadingScreen WelcomeScreen = new LoadingScreen();
 
         static void Main(string[] args)
         {
             WelcomeScreen.DisplayWelcomeAnimation();
 
-            var initTask = new Task(InitializeBrowser);
+            var initTask = new Task(HNOOOBrowser.HNOOOBrowser.InitializeBrowser);
 
             initTask.Start();
             initTask.Wait();
@@ -29,11 +28,6 @@ namespace ConsoleUI
         {
             Console.WriteLine("\n\nHNOOOBrowser terminated...");
             Console.ReadKey(true);
-        }
-
-        internal static void InitializeBrowser()
-        {
-            Compositor = new InterfaceCompositor(new SnakeDisplayEngine());
         }
     }
 }

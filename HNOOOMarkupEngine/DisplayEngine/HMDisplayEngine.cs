@@ -12,37 +12,54 @@ namespace HNOOOMarkupEngine.DisplayEngine
     {
         private string _address;
 
-		public bool Keypress(ConsoleKeyInfo key)
+        int _x = 0;
+        int _y = 0;
+        int _directionx = 1;
+        int _directiony = -1;
+
+
+        public bool Keypress(ConsoleKeyInfo key)
 		{
-			throw new NotImplementedException();
+		    switch (key.Key)
+		    {
+		        case ConsoleKey.LeftArrow:
+                    _directionx = -Math.Abs(_directionx);
+                    break;
+		        case ConsoleKey.UpArrow:
+                    _directiony = -Math.Abs(_directiony);
+                    break;
+		        case ConsoleKey.RightArrow:
+                    _directionx = Math.Abs(_directionx);
+                    break;
+		        case ConsoleKey.DownArrow:
+                    _directiony = Math.Abs(_directiony);
+                    break;
+		        default:
+                    return false;
+		    }
+            return true;
 		}
 
 		public void Navigate(string address)
 		{
             _address = address;
 
-		    var x = 0;
-		    var y = 0;
-		    var directionx = 1;
-		    var directiony = -1;
-
 		    while (true)
 		    {
+		        if(_x + _directionx >= Region.X + Region.Width) { _directionx = -Math.Abs(_directionx); }
+		        if(_x + _directionx <= Region.X) { _directionx = Math.Abs(_directionx); }
+		        if(_y + _directiony >= Region.Y + Region.Height) { _directiony = -Math.Abs(_directiony); }
+		        if(_y + _directiony <= Region.Y) { _directiony = Math.Abs(_directiony); }
 
-                if (x + directionx >= Region.X + Region.Width) { directionx = -Math.Abs(directionx); }
-                if (x + directionx <= Region.X) { directionx = Math.Abs(directionx); }
-                if (y + directiony >= Region.Y + Region.Height) { directiony = -Math.Abs(directiony); }
-                if (y + directiony <= Region.Y) { directiony = Math.Abs(directiony); }
-
-                x += directionx;
-		        y += directiony;
+                _x += _directionx;
+		        _y += _directiony;
 
 		        lock (InterfaceCompositor.ConsoleWriterLock)
 		        {
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition(_x, _y);
 
                     Console.ForegroundColor = (ConsoleColor)((int)(Console.ForegroundColor + 1) & 0xF);
-                    Console.Write((int)Console.ForegroundColor > 0x7 ? '*' : ' ');
+                    Console.Write('*');
                 }
 
 		        Thread.Sleep(150);

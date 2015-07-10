@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace InterfaceComposition.Interface
 {
@@ -37,26 +38,22 @@ namespace InterfaceComposition.Interface
 
         public void Update()
 	    {
-	        lock (InterfaceCompositor.ConsoleWriterLock)
-	        {
+	        lock (InterfaceCompositor.ConsoleWriterLock) {
 	            Console.SetCursorPosition(Region.X, Region.Y);
 
 	            SetConsoleColor();
 
-	            for (Console.CursorLeft = Region.X; Console.CursorLeft + 1 < Region.Width + Region.X; Console.CursorLeft++)
-	            {
-	                for (Console.CursorTop = Region.Y; Console.CursorTop + 1 < Region.Height + Region.Y; Console.CursorTop++)
-	                {
+	            for (Console.CursorLeft = Region.X; Console.CursorLeft + 1 < Region.Width + Region.X; Console.CursorLeft++) {
+	                for (Console.CursorTop = Region.Y; Console.CursorTop + 1 < Region.Height + Region.Y; Console.CursorTop++) {
 	                    var oldX = Console.CursorLeft;
 	                    var oldY = Console.CursorTop;
 
                         Console.Write(' ');
-	                    Console.SetCursorPosition(oldX, oldY);
+	                    Console.SetCursorPosition(oldX, oldY); //apparently can't write to console without advancing the cursor, which we don't want
 	                }
                 }
 
-	            switch (state)
-	            {
+	            switch (state) {
 	                case UIState.Normal:
                         Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
                         Console.Write("CTRL + G for goto");
@@ -89,17 +86,20 @@ namespace InterfaceComposition.Interface
 
 	    public bool Keypress(ConsoleKeyInfo key)
 	    {
-	        if (key.Key == ConsoleKey.G && key.Modifiers == ConsoleModifiers.Control)
-	        {
+	        if (key.Key == ConsoleKey.G && key.Modifiers == ConsoleModifiers.Control) {
 	            lock (InterfaceCompositor.ConsoleWriterLock) {
 	                Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
 	                state = state == UIState.Normal ? UIState.ExpectInput : UIState.Normal; //switch between UIState.Normal and UIState.ExpectInput
 	            }
                 _urlInput = "";
+                new Task(Update).Start();
                 return true;
 	        } else if (state == UIState.ExpectInput) {
+	            if (key.Key == ConsoleKey.Enter) {
+                    return true;
+	            }
 	            _urlInput += key.KeyChar;
-	            Update();
+	            new Task(Update).Start();
                 return true;
 	        }
             return false;
