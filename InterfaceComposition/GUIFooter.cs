@@ -36,36 +36,25 @@ namespace InterfaceComposition.Interface
 	    private string _urlInput = "";
         #endregion
 
-        public void Update()
-	    {
-	        lock (InterfaceCompositor.ConsoleWriterLock) {
-	            Console.SetCursorPosition(Region.X, Region.Y);
+	    public void Update() {
+	        //needed because I want to draw the footer in one thing for performance reasons (writing to the console is slow, so is setting the cursor position)
+	        var footerText = new Dictionary<UIState, string> {{UIState.Normal, "CTRL + G for goto"}, {UIState.ExpectInput, "URL: " + (_urlInput == "" ? "_" : _urlInput)}};
 
+	        lock(InterfaceCompositor.ConsoleWriterLock) {
+	            Console.SetCursorPosition(Region.X, Region.Y);
 	            SetConsoleColor();
 
-	            for (Console.CursorLeft = Region.X; Console.CursorLeft + 1 < Region.Width + Region.X; Console.CursorLeft++) {
-	                for (Console.CursorTop = Region.Y; Console.CursorTop + 1 < Region.Height + Region.Y; Console.CursorTop++) {
-	                    var oldX = Console.CursorLeft;
-	                    var oldY = Console.CursorTop;
-
-                        Console.Write(' ');
-	                    Console.SetCursorPosition(oldX, oldY); //apparently can't write to console without advancing the cursor, which we don't want
+	            try {
+	                for(Console.CursorTop = Region.Y; Console.CursorTop + 1 < Region.Height + Region.Y; Console.CursorTop++) {
+	                    for(Console.CursorLeft = Region.X; Console.CursorLeft + 1 < Region.Width + Region.X;) {
+	                        Console.Write(((Console.CursorTop  - Region.Y)      == 1 &&
+                                          ((Console.CursorLeft - Region.X) - 1) >= 0 &&
+                                          ((Console.CursorLeft - Region.X) - 1) <= (footerText[state].Length - 1))
+                                            ? footerText[state][(Console.CursorLeft - Region.X) - 1] : ' ');
+	                    }
 	                }
-                }
-
-	            switch (state) {
-	                case UIState.Normal:
-                        Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
-                        Console.Write("CTRL + G for goto");
-                        break;
-                    case UIState.ExpectInput:
-                        Console.SetCursorPosition(Region.X + 1, Region.Y + 1);
-                        Console.Write("URL: " + (_urlInput == "" ? "_" : _urlInput));
-                        break;
 	            }
-
-
-                RevertConsoleColor();
+	            finally { RevertConsoleColor(); }
 	        }
 	    }
 

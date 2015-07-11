@@ -8,12 +8,11 @@ namespace ConsoleUI
 	{
 		public void DisplayWelcomeAnimation()
 		{
-		    try
-		    {
+		    try {
 		        var lines = File.ReadAllText("Welcome.txt").Split('\n');
 		        var arguments = lines[0].Split(' ');
 		        var heightInLines = int.Parse(arguments[0]);
-                var durationInMs = int.Parse(arguments[1]);
+		        var durationInMs = int.Parse(arguments[1]);
 
 		        for(var index = 1; index < lines.Length;) {
 		            Console.Clear();
@@ -23,10 +22,9 @@ namespace ConsoleUI
 		            Thread.Sleep(durationInMs);
 		        }
 
-                Console.Clear();
-            }
-		    catch (Exception e)
-		    {
+		        Console.Clear();
+		    }
+		    catch(Exception e) {
 		        Console.WriteLine("Following error occured while trying to display the welcome message:\n{0}", e);
 		    }
 		}
