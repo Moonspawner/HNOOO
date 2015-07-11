@@ -36,8 +36,6 @@ namespace InterfaceComposition.Interface
 	    private UIState state = UIState.Normal;
 
 	    private string _urlInput = "";
-
-	    private int _frame = 0; //for debugging purposes
         #endregion
 
         public void Update() {
@@ -56,11 +54,9 @@ namespace InterfaceComposition.Interface
 	                                       ((Console.CursorLeft - Region.X) - 1) >= 0 &&
 	                                       ((Console.CursorLeft - Region.X) - 1) <= (footerText[state].Length - 1))
 	                            ? footerText[state][(Console.CursorLeft - Region.X) - 1] : ' ');
-	                        Thread.Sleep(25);
 	                    }
 	                }
 	            }
-                catch(Exception e) { }
 	            finally {
 	                RevertConsoleColor();
 	                _stallUpdate = false;
@@ -77,7 +73,7 @@ namespace InterfaceComposition.Interface
 	    private void SetConsoleColor()
 	    {
             _previousBackgroundColor = Console.BackgroundColor;
-	        Console.BackgroundColor = _frame++ % 2 == 0 ? ConsoleColor.DarkBlue : ConsoleColor.DarkGreen;
+	        Console.BackgroundColor = BackgroundColor;
 
             _previousForegroundColor = Console.ForegroundColor;
 	        Console.ForegroundColor = TextColor;
