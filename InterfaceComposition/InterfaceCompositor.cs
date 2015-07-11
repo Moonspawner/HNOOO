@@ -30,9 +30,7 @@ namespace InterfaceComposition.Interface {
 
             ConsoleKeyInfo key;
             while((key = Console.ReadKey(true)) != null) {
-                if(!(Footer.Keypress(key) || _engine.Keypress(key))) {
-                    //Keypress couldn't be handled :c
-                }
+                if(!(Footer.Keypress(key) || _engine.Keypress(key))) { Footer.Keypress(key, true); }
             }
         }
 
