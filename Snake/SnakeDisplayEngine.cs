@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using IDisplayEngine;
 using InterfaceComposition.Interface;
 
 namespace Snake
 {
-    public class SnakeDisplayEngine : IDisplayEngine
+    public class SnakeDisplayEngine : IDisplayEngine.IDisplayEngine
     {
         private int _consoleLeft = 0;
         private int _consoleTop = 0;

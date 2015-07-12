@@ -1,17 +1,18 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using IDisplayEngine;
 
 namespace InterfaceComposition.Interface {
     public class InterfaceCompositor {
         //http://stackoverflow.com/a/1522972
         public static readonly object ConsoleWriterLock = new object();
 
-        private readonly IDisplayEngine _engine;
+        private readonly IDisplayEngine.IDisplayEngine _engine;
 
         public GUIFooter Footer { get; set; }
 
-        public InterfaceCompositor(IDisplayEngine engine) {
+        public InterfaceCompositor(IDisplayEngine.IDisplayEngine engine) {
             Footer = new GUIFooter();
             new Task(Footer.Update).Start();
 

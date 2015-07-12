@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using HNOOOMarkupEngine.Parser;
+using IDisplayEngine;
 
 namespace HNOOOMarkupEngine.DisplayEngine
 {
     // ReSharper disable once InconsistentNaming
-	public class HMDisplayEngine : IDisplayEngine
+	public class HMDisplayEngine : IDisplayEngine.IDisplayEngine
     {
         private string _address;
 

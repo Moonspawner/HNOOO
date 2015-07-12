@@ -1,15 +1,24 @@
-using HNOOOMarkupEngine.DisplayEngine;
+using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using InterfaceComposition.Interface;
 
 namespace HNOOOBrowser
 {
     public class HNOOOBrowser
     {
-        internal static InterfaceCompositor Compositor;
+        internal InterfaceCompositor Compositor;
+        private IDisplayEngine.IDisplayEngine _displayEngine;
 
-        public static void InitializeBrowser()
+        public void InitializeBrowser()
         {
-            Compositor = new InterfaceCompositor(new HMDisplayEngine());
+            //loads the first IDisplayEngine it can find
+            var displayengine = Directory.GetFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.dll").Select(Assembly.LoadFile).SelectMany(
+                currentAssembly => (currentAssembly.GetTypes().Where(
+                    type => type.GetInterfaces().Contains(typeof(IDisplayEngine.IDisplayEngine))))).First();
+            _displayEngine = (IDisplayEngine.IDisplayEngine)Activator.CreateInstance(displayengine);
+            Compositor = new InterfaceCompositor(_displayEngine);
         }
     }
 }

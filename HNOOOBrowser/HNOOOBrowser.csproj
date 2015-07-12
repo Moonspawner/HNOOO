@@ -43,9 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HNOOOMarkupEngine\DisplayEngine\HNOOODisplayEngine.csproj">
-      <Project>{1f44d0de-6e52-4079-be88-37e3f618efcd}</Project>
-      <Name>HNOOODisplayEngine</Name>
+    <ProjectReference Include="..\IDisplayEngine\IDisplayEngine.csproj">
+      <Project>{f95f3688-9c3d-47d9-8699-57ad39877589}</Project>
+      <Name>IDisplayEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\InterfaceComposition\InterfaceComposition.csproj">
       <Project>{f5442ad8-0100-45b7-8642-39102895cb0a}</Project>

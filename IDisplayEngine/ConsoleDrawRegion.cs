@@ -1,4 +1,4 @@
-﻿namespace InterfaceComposition.Interface
+﻿namespace IDisplayEngine
 {
     public struct ConsoleDrawRegion
     {

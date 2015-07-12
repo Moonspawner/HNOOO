@@ -54,11 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleDrawRegionHorizontal.cs" />
-    <Compile Include="ConsoleDrawRegion.cs" />
     <Compile Include="InterfaceCompositor.cs" />
     <Compile Include="GUIFooter.cs" />
-    <Compile Include="IDisplayEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -66,6 +63,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IDisplayEngine\IDisplayEngine.csproj">
+      <Project>{f95f3688-9c3d-47d9-8699-57ad39877589}</Project>
+      <Name>IDisplayEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
