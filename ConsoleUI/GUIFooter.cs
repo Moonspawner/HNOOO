@@ -38,6 +38,7 @@ namespace ConsoleUI
         public void Update() {
 	        //needed because I want to draw the footer in one pass for performance reasons (writing to the console is expensive, so is setting the cursor position)
 	        var footerText = new Dictionary<UIState, string> {{UIState.Normal, "CTRL + G for goto"}, {UIState.ExpectInput, "URL: " + (_urlInput == "" ? "_" : _urlInput)}};
+            var helptext = "F1 for help";
 
 	        lock(InterfaceCompositor.ConsoleWriterLock) {
 	            Console.SetCursorPosition(Region.X, Region.Y);
@@ -47,10 +48,17 @@ namespace ConsoleUI
                 try {
 	                for(Console.CursorTop = Region.Y; Console.CursorTop + 1 < Region.Height + Region.Y && !_stallUpdate; Console.CursorTop++) {
 	                    for(Console.CursorLeft = Region.X; Console.CursorLeft + 1 < Region.Width + Region.X && !_stallUpdate;) {
-                            Console.Write(((Console.CursorTop - Region.Y) == 1 &&
-	                                       ((Console.CursorLeft - Region.X) - 1) >= 0 &&
-	                                       ((Console.CursorLeft - Region.X) - 1) <= (footerText[state].Length - 1))
-	                            ? footerText[state][(Console.CursorLeft - Region.X) - 1] : ' ');
+	                        if(((Console.CursorLeft - Region.X) - 1) >= 0) { 
+                                if(((Console.CursorTop - Region.Y) == 1 && ((Console.CursorLeft - Region.X) - 1) <= (footerText[state].Length - 1)))
+	                            {
+	                                Console.Write(footerText[state][(Console.CursorLeft - Region.X) - 1]);
+	                            } else if (((Console.CursorTop - Region.Y) == 2 && ((Console.CursorLeft - Region.X) - 1) <= (helptext.Length - 1)))
+                                {
+                                    Console.Write(helptext[(Console.CursorLeft - Region.X) - 1]);
+                                }
+                                else { Console.Write(' '); }
+                            }
+	                        else { Console.Write(' '); }
 	                    }
 	                }
 	            }
