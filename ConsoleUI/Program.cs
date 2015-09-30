@@ -1,10 +1,7 @@
-﻿using InterfaceComposition.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using HNOOOMarkupEngine.DisplayEngine;
-using Snake;
 
 namespace ConsoleUI
 {
@@ -16,7 +13,7 @@ namespace ConsoleUI
         {
             WelcomeScreen.DisplayWelcomeAnimation();
 
-            var initTask = new Task(HNOOOBrowser.HNOOOBrowser.InitializeBrowser);
+            var initTask = new Task(HNOOOBrowser.InitializeBrowser);
 
             initTask.Start();
             initTask.Wait();

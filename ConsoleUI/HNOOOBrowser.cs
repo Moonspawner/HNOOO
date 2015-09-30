@@ -1,7 +1,4 @@
-using HNOOOMarkupEngine.DisplayEngine;
-using InterfaceComposition.Interface;
-
-namespace HNOOOBrowser
+namespace ConsoleUI
 {
     public class HNOOOBrowser
     {

@@ -1,4 +1,4 @@
-﻿namespace InterfaceComposition.Interface
+﻿namespace ConsoleUI
 {
     public struct ConsoleDrawRegionHorizontal
     {

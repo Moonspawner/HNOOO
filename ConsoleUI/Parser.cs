@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
-namespace HNOOOMarkupEngine.Parser
+namespace ConsoleUI
 {
 	public static class Parser
 	{

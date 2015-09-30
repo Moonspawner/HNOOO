@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace InterfaceComposition.Interface {
+namespace ConsoleUI {
     public class InterfaceCompositor {
         //http://stackoverflow.com/a/1522972
         public static readonly object ConsoleWriterLock = new object();

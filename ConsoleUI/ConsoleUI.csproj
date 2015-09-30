@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleDrawRegion.cs" />
+    <Compile Include="ConsoleDrawRegionHorizontal.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="GUIFooter.cs" />
+    <Compile Include="HMDisplayEngine.cs" />
+    <Compile Include="HNOOOBrowser.cs" />
+    <Compile Include="IDisplayEngine.cs" />
+    <Compile Include="InterfaceCompositor.cs" />
     <Compile Include="LoadingScreen.cs" />
+    <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,22 +61,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HNOOOBrowser\HNOOOBrowser.csproj">
-      <Project>{35a983c1-6af8-46e6-ad08-e14ac08cab13}</Project>
-      <Name>HNOOOBrowser</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HNOOOMarkupEngine\DisplayEngine\HNOOODisplayEngine.csproj">
-      <Project>{1f44d0de-6e52-4079-be88-37e3f618efcd}</Project>
-      <Name>HNOOODisplayEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InterfaceComposition\InterfaceComposition.csproj">
-      <Project>{f5442ad8-0100-45b7-8642-39102895cb0a}</Project>
-      <Name>InterfaceComposition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Snake\Snake.csproj">
-      <Project>{a6795700-33ee-4bc2-8d0c-01f72f5ca301}</Project>
-      <Name>Snake</Name>
-    </ProjectReference>
+    <None Include="nameserver.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
