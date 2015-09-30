@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace IDisplayEngine
+namespace InterfaceComposition.Interface
 {
 	public interface IDisplayEngine
     {

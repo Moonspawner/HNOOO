@@ -1,21 +1,22 @@
-﻿using System;
+﻿using InterfaceComposition.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using HNOOOMarkupEngine.DisplayEngine;
+using Snake;
 
 namespace ConsoleUI
 {
     class Program
     {
         internal static LoadingScreen WelcomeScreen = new LoadingScreen();
-        internal static HNOOOBrowser.HNOOOBrowser _browser;
 
         static void Main(string[] args)
         {
-            new Task(WelcomeScreen.DisplayWelcomeAnimation).Start();
+            WelcomeScreen.DisplayWelcomeAnimation();
 
-            _browser = new HNOOOBrowser.HNOOOBrowser();
-            var initTask = new Task(_browser.InitializeBrowser);
+            var initTask = new Task(HNOOOBrowser.HNOOOBrowser.InitializeBrowser);
 
             initTask.Start();
             initTask.Wait();

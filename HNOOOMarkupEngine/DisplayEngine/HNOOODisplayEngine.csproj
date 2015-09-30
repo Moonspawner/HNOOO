@@ -63,10 +63,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IDisplayEngine\IDisplayEngine.csproj">
-      <Project>{f95f3688-9c3d-47d9-8699-57ad39877589}</Project>
-      <Name>IDisplayEngine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\InterfaceComposition\InterfaceComposition.csproj">
       <Project>{f5442ad8-0100-45b7-8642-39102895cb0a}</Project>
       <Name>InterfaceComposition</Name>
@@ -77,8 +73,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>
